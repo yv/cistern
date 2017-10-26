@@ -166,7 +166,6 @@ public class Solution {
 	
 	/** Constructs a solution for a word. Note that the prefix, stem and suffix combination is <STRONG>recomputed</STRONG> 
 	 * and may not necessarily match with the information provided by the dictionaries.	 
-	 * @param cnt Order in sequence ; not very useful actually
 	 * @param prefix The prefix as provided by the prefixes dictionnary
 	 * @param stem The stem as provided by the stems dictionnary
 	 * @param suffix The suffix as provided by the suffixes dictionnary

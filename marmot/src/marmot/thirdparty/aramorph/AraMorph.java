@@ -244,9 +244,6 @@ public class AraMorph {
 	 * results.
 	 * 
 	 * @return Whether or not the word has a solution in arabic
-	 * @param outputBuckwalter
-	 *            Whether or not the Buckwalter transliteration system should be
-	 *            used. If not, outputs will be in arabic wherever possible
 	 * @param token
 	 *            The token to be analyzed
 	 */

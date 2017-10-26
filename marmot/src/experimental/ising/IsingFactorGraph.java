@@ -347,13 +347,9 @@ public class IsingFactorGraph {
 	
 	
 	
-	/**
-	 * 
-	 * @return
-	 */
 	public void featurizedGradient(double[] gradient, int numData) {
 		this.inference(this.inferenceIterations, 0.01);
-			
+
 		for (UnaryFactor uf : this.unaryFactors) {
 			
 			if (this.golden.get(uf.getI()) == 1) {

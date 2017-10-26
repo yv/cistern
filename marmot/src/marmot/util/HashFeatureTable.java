@@ -1,15 +1,14 @@
 package marmot.util;
 
-import gnu.trove.set.TIntSet;
-import gnu.trove.set.hash.TIntHashSet;
+import org.eclipse.collections.impl.set.mutable.primitive.IntHashSet;
 
 public class HashFeatureTable implements FeatureTable {
 
 	private static final long serialVersionUID = 1L;
-	private TIntSet set_; 
+	private IntHashSet set_;
 	
 	public HashFeatureTable() {
-		set_ = new TIntHashSet();
+		set_ = new IntHashSet();
 	}
 	
 	@Override

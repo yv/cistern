@@ -39,9 +39,7 @@ public class UnaryFeatureExtractor extends FeatureExtractor {
 	}
 	
 	/** Feature Templates
-	 * TEMPLATE(SUB<
-	 * @param feature
-	 * @param tag
+	 * TEMPLATE(SUB
 	 */
 	public void extract(String word) {
 		for (int i = 0; i < this.maxPrefix; ++i) {

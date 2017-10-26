@@ -1,0 +1,70 @@
+def cistern_version = '1.0.0'
+
+subprojects {
+  apply plugin: 'java'
+  apply plugin: 'maven-publish'
+
+  repositories {
+    mavenCentral()
+    jcenter()
+    maven {
+      url "http://dl.bintray.com/yversley/com.github.yv"
+    }
+}
+
+  task javadocJar(type: Jar) {
+      classifier = 'javadoc'
+      from javadoc
+  }
+
+  task sourcesJar(type: Jar) {
+      classifier = 'sources'
+      from sourceSets.main.allSource
+  }
+
+}
+
+project(':marmot') {
+  sourceSets {
+    main {
+      java {
+        srcDirs = ['src']
+      }
+    }
+  }
+
+  dependencies {
+    compile group: 'junit', name: 'junit', version: '4.12'
+    compile group: 'com.martiansoftware', name: 'jsap', version: '2.1'
+    compile group: 'org.javatuples', name: 'javatuples', version: '1.2'
+    compile group: 'cc.mallet', name: 'mallet', version: '2.0.8'
+    compile group: 'org.eclipse.collections', name: 'eclipse-collections', version: '8.2.0'
+    compile group: 'org.apache.opennlp', name: 'opennlp-tools', 'version': '1.8.2'
+    compile group: 'org.apache.commons', name: 'commons-compress', version: '1.14'
+    compile group: 'org.apache.opennlp', name: 'opennlp-maxent', version: '3.0.3'
+  }
+
+  artifacts {
+    archives javadocJar, sourcesJar
+  }
+
+  publishing {
+    publications {
+      maven(MavenPublication) {
+        groupId 'com.github.yv'
+        artifactId 'marmot'
+        version cistern_version
+        artifact sourcesJar {
+          classifier "sources"
+        }
+        artifact javadocJar {
+          classifier "javadoc"
+        }
+      }
+    }
+  }
+}
+
+wrapper {
+  gradleVersion = '3.5'
+}

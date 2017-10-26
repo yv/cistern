@@ -28,7 +28,7 @@ public class OpenNlpTokenizerTrainer {
 		TokenizerModel model;
 
 		ObjectStream<String> line_stream = new PlainTextByLineStream(
-				new FileInputStream(path), Charset.forName("UTF-8"));
+				() -> new FileInputStream(path), Charset.forName("UTF-8"));
 		ObjectStream<TokenSample> samples = new TokenSampleStream(line_stream);
 
 		String lang_code = "";
